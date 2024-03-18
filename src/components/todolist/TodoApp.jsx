@@ -27,9 +27,7 @@ const mockTodo = [
 function TodoApp() {
     // useState로 todos 상태를 관리합니다.
     const [todos, setTodos] = useState(mockTodo)
-
     const idRef = useRef(4)
-
     // 할 일을 추가하는 함수
     const addTodo = (task) => {
         const newTodo = {
@@ -40,12 +38,18 @@ function TodoApp() {
         }
         setTodos([newTodo, ...todos])
     }
+    const onUpdate = (id) => {
+        setTodos(todos.map((it) => (it.id === id ? {...it, isDone: !it.Done} : it)))
+    }
+    const onDelete = (id) => {
+        setTodos(todos.filter((it) => it.id!== id))
+    }
 
     return (
         <div>
             <TodoHd />
             <TodoEditor addTodo={addTodo} />
-            <TodoList todos={todos} />
+            <TodoList todos={todos} onUpdate={onUpdate} onDelete={onDelete}/>
         </div>
     )
 }

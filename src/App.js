@@ -10,9 +10,7 @@ function App() {
         age: '',
         intro: '',
     })
-
     const [count, setCount] = useState(0)
-
     const didMountRef = useRef(false)
 
     useEffect(() => {
@@ -51,18 +49,6 @@ function App() {
             <br />
             <hr />
             <br />
-            {/* <Arrangement />
-            <Header />
-            <Body /> */}
-            {/* <TodoApp /> */}
-            <br />
-            <hr />
-            <br />
-            {/* <TodoApp2 /> */}
-            <br />
-            <hr />
-            <br />
-            {/* <UsersList /> */}
         </div>
     )
 }
